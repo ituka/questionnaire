@@ -1,9 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+<meta charset="utf-8"/>
+<title>Please ask question</title>
 </head>
 <body>
+    <script type="text/javascript">
+        function send(){
+            var frm=document.forms.frm;
+            var fs = WScript.CreateObject("Scripting.FileSystemObject");
+            var file = fs.CreateTextFile("tmp.txt");
+            file.write(frm.elements['text'].value)
+            alert(frm.elements['text'].value);
+        }
+    </script>
 
+    <form id="frm" action="#" onsubmit="return send();">
+        <h3>question1</h3><br>
+        <div>
+            <input type="radio" name="q1" id="q1" value="5"> 1
+            <input type="radio" name="q1" id="q1" value="4"> 2
+            <input type="radio" name="q1" id="q1" value="3"> 3
+            <input type="radio" name="q1" id="q1" value="2"> 4
+            <input type="radio" name="q1" id="q1" value="1"> 5
+        </div>
+
+        <textarea id="text" rows="4" cols="40" placeholder="Please ask"></textarea><br>
+                
+        <input type="submit" value="送信" />
+    </form>
 </body>
 </html>
